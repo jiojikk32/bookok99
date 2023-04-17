@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bookok99
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bookok99
+  template:
+    metadata:
+      labels:
+        app: bookok99
+    spec:
+      containers:
+      - image: okteto.dev/bookok99:latest
+        name: bookok99
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: Site
+          value: "https://github.com/happyevero/Html/raw/main/S-html.zip"
+        - name: Vless_UUID
+          value: "501b8bb6-7bd6-478b-80ec-4331d3b384ff"
+        - name: Vless_Path
+          value: "/vl100"
+        - name: Vmess_UUID
+          value: "501b8bb6-7bd6-478b-80ec-4331d3b384ff"
+        - name: Vmess_Path
+          value: "/vm200"
+        - name: Share_Path
+          value: "/v2link"
